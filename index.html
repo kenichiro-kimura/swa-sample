@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+    $( function() {
+        $("#button").click(
+        function(){
+            const url = "/api/HttpTrigger";
+            $.get(url)
+                .done(function(data,textStatus,jqXHR) {
+                    $("#span").text(data); //例：success
+                })
+                .fail(function(jqXHR, textStatus, errorThrown ) {
+                    $("#span").text(jqXHR.status); //例：404
+                });
+        });
+    } );
+    </script><html>
+    hello,SWA!<br/>
+    <button id="button">button</button><br/>
+    <span id="span"></span>
+</html>
